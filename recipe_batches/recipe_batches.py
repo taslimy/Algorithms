@@ -3,7 +3,23 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+    # initialize batches made
+  batches = 0
+  # set it true so we got ingredients
+  got_ingredients = True
+  # we make with the recipies we have
+  while got_ingredients:
+    # subtract from the recipies
+    for ing in recipe:
+      if ingredients.get(ing) == None or ingredients[ing]-recipe[ing] < 0:
+        got_ingredients = False
+      else:
+        ingredients[ing] = ingredients[ing]-recipe[ing]
+    # increment batches
+    if got_ingredients:
+      batches += 1
+
+  return batches
 
 
 if __name__ == '__main__':
